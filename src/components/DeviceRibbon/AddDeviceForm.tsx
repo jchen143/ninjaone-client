@@ -1,6 +1,7 @@
 import React from 'react';
 
-import DeviceForm, { DeviceData } from 'src/base-components/Form/DeviceForm';
+import DeviceForm from 'src/base-components/Form/DeviceForm';
+import { Device } from 'src/util/devices-util';
 
 interface AddDeviceFormProps {
   closeForm: () => void;
@@ -8,7 +9,7 @@ interface AddDeviceFormProps {
 
 const AddDeviceForm: React.FC<AddDeviceFormProps> = (props) => {
   const { closeForm } = props;
-  const handleSubmit = (data: DeviceData) => {
+  const handleSubmit = (data: Device) => {
     console.log("jochen");
     console.log(data);
   };
