@@ -4,9 +4,9 @@ const BASE_URL = 'http://localhost:3000';
 
 export interface Device {
   id?: number;
-  systemName: string;
-  deviceType: string;
-  deviceCapacity: number;
+  system_name: string;
+  type: string;
+  hdd_capacity: number;
 }
 
 // isAxiosError === isHTTPError more or less
@@ -64,7 +64,7 @@ export const createDevice = async (device: Device): Promise<Device> => {
   }
 }; 
 
-export const editDevice = async (device: Device): Promise<Device> => {
+export const updateDevice = async (device: Device): Promise<Device> => {
   try {
     const response = await axios.put(`${BASE_URL}/devices/${device.id}`, device);
     return response.data;
