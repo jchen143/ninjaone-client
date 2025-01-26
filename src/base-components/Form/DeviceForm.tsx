@@ -10,9 +10,10 @@ interface DeviceFormProps {
   defaultValues?: Device;
   onSubmit: (data: Device) => void;
   closeForm: () => void;
+  isDelete?: boolean;
 }
 
-const DeviceForm: React.FC<DeviceFormProps> = (props) => {
+const DeviceForm: React.FC<DeviceFormProps> = ({isDelete = false, ...props}) => {
   const { defaultValues, onSubmit, closeForm } = props;
   const { system_name, type, hdd_capacity } = defaultValues ?? {};
 
@@ -39,13 +40,20 @@ const DeviceForm: React.FC<DeviceFormProps> = (props) => {
           onChange={handleDeviceCapacityChange}
         />
 
-  const fields = [systenNameField, deviceTypeField, deviceCapacityField];
+  const fields = isDelete ? 
+    [<div>{`You are about to delete device ${defaultValues?.system_name}. This action cannot be undone`}</div>] : 
+    [systenNameField, deviceTypeField, deviceCapacityField];
 
   const cancelButton = <Button text="Cancel" buttonType={ButtonType.NEUTRAL} onClick={() => {closeForm()}} />;
-  const submitButton = <Button text="Submit" buttonType={ButtonType.PRIMARY} onClick={() => {
-    onSubmit(formData)
-    closeForm()
-  }} />;
+  const submitButton = isDelete ? 
+    <Button text="Delete" buttonType={ButtonType.ALERT} onClick={() => {
+      onSubmit(formData)
+      closeForm()
+    }} /> : 
+    <Button text="Submit" buttonType={ButtonType.PRIMARY} onClick={() => {
+      onSubmit(formData)
+      closeForm()
+    }} />;
 
   const actionButtons = [cancelButton, submitButton];
 
