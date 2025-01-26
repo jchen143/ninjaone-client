@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Filter, SortParams } from 'src/components/DataTable/DataTable';
+import { Filter, SortParams } from 'src/types/types';
 import DeviceFilter from 'src/components/DataTable/SearchFilterSort/DeviceFilter';
 import Refresh from 'src/components/DataTable/SearchFilterSort/Refresh';
 import Search from 'src/components/DataTable/SearchFilterSort/Search';

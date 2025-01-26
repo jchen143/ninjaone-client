@@ -1,7 +1,8 @@
 import React from 'react';
 
 import DeviceForm from 'src/base-components/Form/DeviceForm';
-import { createDevice, Device } from 'src/util/devices-util';
+import { Device } from 'src/types/types';
+import { createDevice } from 'src/util/devices-util';
 
 interface AddDeviceFormProps {
   closeForm: () => void;

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Device } from 'src/util/devices-util';
+
+import { Device } from 'src/types/types';
+import DeviceRowItem from "src/components/DataTable/DevicesTable/DeviceRowItem";
 
 interface DevicesTableProps {
   devices: Device[];
@@ -8,7 +10,11 @@ interface DevicesTableProps {
 const DevicesTable: React.FC<DevicesTableProps> = (props) => {
   const { devices } = props;
 
-  return (<div>{devices.map((device) => <div key={device.id}>{device.system_name} {device.type} {device.hdd_capacity}</div>)}</div>)
+  return (
+    <div className="device-table">
+      {devices.map((device) => <DeviceRowItem device={device} key={device.id} />)}
+    </div>
+  )
 };
 
 export default DevicesTable;

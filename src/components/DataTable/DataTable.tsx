@@ -3,31 +3,10 @@ import React from 'react';
 import DevicesTable from 'src/components/DataTable/DevicesTable/DevicesTable';
 import SearchAndFilterBar from 'src/components/DataTable/SearchFilterSort/SearchAndFilterBar';
 
-import { Device, DeviceTypes, fetchDevices } from 'src/util/devices-util';
+import { fetchDevices } from 'src/util/devices-util';
+import { Device, Filter, SortBy, SortOrder, SortParams } from 'src/types/types';
 
 // import './DataTable.scss';
-
-
-
-export interface Filter {
-  nameFilter: string;
-  deviceFilter: DeviceTypes | "all";
-}
-
-export enum SortBy {
-  HDD_CAPACITY = 'hdd_capacity',
-  SYSTEM_NAME = 'system_name'
-}
-
-export enum SortOrder {
-  ASC = 'asc',
-  DESC = 'desc'
-}
-
-export interface SortParams {
-  sortBy: SortBy;
-  sortOrder: SortOrder;
-}
 
 const DataTable: React.FC = () => {
   const [devices, setDevices] = React.useState<Device[]>([]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter } from 'src/components/DataTable/DataTable';
+import { Filter } from 'src/types/types';
 
 interface SearchProps {
   setFilters: (filters: Filter) => void;

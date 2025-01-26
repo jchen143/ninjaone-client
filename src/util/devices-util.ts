@@ -1,18 +1,10 @@
 import axios from 'axios';
+import { Device } from 'src/types/types';
 
 
-export interface Device {
-  id?: string;
-  system_name: string;
-  type: string;
-  hdd_capacity: number;
-}
 
-export enum DeviceTypes {
-  WINDOWS = 'windows',
-  LINUX = 'linux',
-  MAC = 'mac'
-}
+
+
 
 const BASE_URL = 'http://localhost:3000';
 // isAxiosError === isHTTPError more or less

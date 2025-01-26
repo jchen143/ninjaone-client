@@ -1,7 +1,6 @@
 import { Dropdown } from 'primereact/dropdown';
 import React from 'react';
-
-import { SortBy, SortOrder, SortParams } from "src/components/DataTable/DataTable";
+import { SortBy, SortOrder, SortParams } from "src/types/types";
 
 interface SortProps {
   setSortParams: (sortParams: SortParams) => void;
@@ -12,8 +11,6 @@ interface SortOption {
   label: string;
   value: SortParams;
 }
-
-
 
 const Sort: React.FC<SortProps> = (props) => {
 

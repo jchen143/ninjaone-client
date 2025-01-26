@@ -1,7 +1,6 @@
 import React from 'react';
-import { Filter } from 'src/components/DataTable/DataTable';
 import { Dropdown } from 'primereact/dropdown';
-import { DeviceTypes } from 'src/util/devices-util';
+import { DeviceTypes, Filter } from "src/types/types"
 
 
 interface DeviceFilterProps {

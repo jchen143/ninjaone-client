@@ -2,7 +2,8 @@ import React from 'react';
 
 import Button, { ButtonType } from 'src/base-components/Button/Button';
 import Form from 'src/base-components/Form/Form';
-import { Device } from 'src/util/devices-util';
+import { Device } from 'src/types/types';
+
 
 
 interface DeviceFormProps {
