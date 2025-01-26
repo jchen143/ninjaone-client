@@ -42,7 +42,7 @@ const DeviceForm: React.FC<DeviceFormProps> = (props) => {
   const fields = [systenNameField, deviceTypeField, deviceCapacityField];
 
   const cancelButton = <Button text="Cancel" buttonType={ButtonType.NEUTRAL} onClick={() => {closeForm()}} />;
-  const submitButton = <Button text="Add Device" buttonType={ButtonType.PRIMARY} onClick={() => {
+  const submitButton = <Button text="Submit" buttonType={ButtonType.PRIMARY} onClick={() => {
     onSubmit(formData)
     closeForm()
   }} />;

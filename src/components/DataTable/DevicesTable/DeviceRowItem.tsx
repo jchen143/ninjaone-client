@@ -12,13 +12,10 @@ const DeviceRowItem: React.FC<DeviceItemProps> = (props) => {
   const [deviceOptionsOpen, setDeviceOptionsOpen] = React.useState(false); 
   const [deviceEditModalOpen, setDeviceEditModalOpen] = React.useState(false);
 
-  const handleEdit = (id?: string) => {
-
-  }
 
   const editAndDelete = (
     <>
-      <button onClick={(e) => handleEdit(device.id)}>Edit</button>
+      <button onClick={(e) => setDeviceEditModalOpen(!deviceEditModalOpen)}>Edit</button>
       <button>Delete</button>
     </>
   )
