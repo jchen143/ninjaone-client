@@ -1,14 +1,20 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000';
 
 export interface Device {
-  id?: number;
+  id?: string;
   system_name: string;
   type: string;
   hdd_capacity: number;
 }
 
+export enum DeviceTypes {
+  WINDOWS = 'windows',
+  LINUX = 'linux',
+  MAC = 'mac'
+}
+
+const BASE_URL = 'http://localhost:3000';
 // isAxiosError === isHTTPError more or less
 
 export const fetchDevices = async (): Promise<Device[]> => {
