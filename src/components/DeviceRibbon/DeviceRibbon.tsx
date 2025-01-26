@@ -16,10 +16,10 @@ const DeviceRibbon: React.FC = () => {
   return (
     <>
       <div className="device-ribbon">
-        <div className="device-ribbon-title">Devices</div>
+        <div className="device-ribbon__title">Devices</div>
         <Button icon={<PlusSignLogo />} text="Add Device" buttonType={ButtonType.PRIMARY} onClick={() => {setDeviceAddModalOpen(true)}} />
       </div>
-      <Modal isOpen={deviceAddModalOpen} onClose={() => {setDeviceAddModalOpen(false)}} title="Add Device">
+      <Modal isOpen={deviceAddModalOpen} onClose={() => {setDeviceAddModalOpen(false)}} title="Add device">
         <AddDeviceForm closeForm={() => {setDeviceAddModalOpen(false)}}/>
       </Modal>
     </>
