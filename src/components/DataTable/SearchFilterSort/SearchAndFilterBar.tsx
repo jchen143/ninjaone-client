@@ -16,14 +16,13 @@ interface SearchAndFilterBarProps {
 }
 
 const SearchAndFilterBar: React.FC<SearchAndFilterBarProps> = (props) => {
-  const { setSortParams, setFilters, filters } = props;
+  const { setSortParams, setFilters, filters, sortParams } = props;
   
   return (
     <div className="search-and-filter-bar">
       <Search filters={filters} setFilters={setFilters}/>
       <DeviceFilter filters={filters} setFilters={setFilters} />
-      {/* <DeviceFilter filters={filters} setFilters={setFilters} />
-      <Sort setSortParams={setSortParams}/> */}
+      <Sort setSortParams={setSortParams} sortParams={sortParams}/>
       <Refresh />
     </div>
   );

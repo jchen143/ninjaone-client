@@ -14,12 +14,12 @@ export interface Filter {
   deviceFilter: DeviceTypes | "all";
 }
 
-enum SortBy {
+export enum SortBy {
   HDD_CAPACITY = 'hdd_capacity',
   SYSTEM_NAME = 'system_name'
 }
 
-enum SortOrder {
+export enum SortOrder {
   ASC = 'asc',
   DESC = 'desc'
 }
