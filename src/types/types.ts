@@ -19,7 +19,7 @@ export enum DeviceTypes {
   MAC = 'mac'
 }
 export interface Device {
-  id?: string;
+  id: string;
   system_name: string;
   type: string;
   hdd_capacity: number;
