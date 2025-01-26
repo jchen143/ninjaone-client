@@ -11,19 +11,39 @@ interface EditDeviceFormProps {
 
 const EditDeviceForm: React.FC<EditDeviceFormProps> = (props) => {
   const { closeForm, deviceId } = props;
-  const [device, setDevice] = React.useState<Device|null>(null); 
+  const [device, setDevice] = React.useState<Device|undefined>(undefined); 
   const [isLoading, setIsLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
+  const [error, setError] = React.useState<string|null>(null);
 
   const handleSubmit = async (data: Device) => {
     await updateDevice(data);
   };
 
   React.useEffect(() => {
-    fetchDeviceById(deviceId); 
-  }, [])
+    const loadDevice = async () => {
+      try {
+        setIsLoading(true); 
+        setError(null); 
 
-  return <DeviceForm onSubmit={handleSubmit} closeForm={closeForm} />;
+        const device = await fetchDeviceById(deviceId); 
+        setDevice(device); 
+      } catch (error) {
+        setError("Failed to find device"); 
+      } finally {
+        setIsLoading(false); 
+      }
+    }
+    
+    loadDevice();
+  }, [deviceId]);
+
+  if(isLoading) return <div>Loading...</div>
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  };
+
+
+  return <DeviceForm onSubmit={handleSubmit} closeForm={closeForm} defaultValues={device}/>;
 };
 
 export default EditDeviceForm;
