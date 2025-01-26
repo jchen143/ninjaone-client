@@ -2,7 +2,8 @@ import React from 'react';
 
 import Button, { ButtonType } from 'src/base-components/Button/Button';
 import Form from 'src/base-components/Form/Form';
-import { Device } from 'src/util/devices-util';
+import { Device } from 'src/types/types';
+
 
 
 interface DeviceFormProps {
@@ -15,7 +16,7 @@ const DeviceForm: React.FC<DeviceFormProps> = (props) => {
   const { defaultValues, onSubmit, closeForm } = props;
   const { system_name, type, hdd_capacity } = defaultValues ?? {};
 
-  const [formData, setFormData] = React.useState<Device>(defaultValues ?? { system_name: "", type: "", hdd_capacity: 0 });
+  const [formData, setFormData] = React.useState<Device>(defaultValues ?? { id: "", system_name: "", type: "", hdd_capacity: 0 });
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, system_name: e.target.value });
