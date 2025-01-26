@@ -1,0 +1,30 @@
+@import "src/styles/variables.scss"; 
+
+.button {
+ 
+  width: 121px;
+  height: 38px;
+  padding: 12px 0px 0px 0px;
+  gap: 8px;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 14px;
+
+  &__primary {
+    background-color: $primary-blue;
+    color: #FFFFFF;
+  }
+
+  &__alert {
+    background-color: $alert-red;
+    color: white;
+  }
+
+  &__neutral {
+    color: white; 
+  }
+}

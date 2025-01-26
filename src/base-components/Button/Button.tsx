@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   return (
     <button 
-      className={`button button--${buttonType} ${additionalClassNames?.join(" ")}`}
+      className={`button button__${buttonType} ${additionalClassNames?.join(" ")}`}
       onClick={onClick}
     >
       {icon}
