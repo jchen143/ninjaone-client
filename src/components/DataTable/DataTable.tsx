@@ -68,11 +68,17 @@ const DataTable: React.FC = () => {
   return (
     <div className="data-table">
       <SearchAndFilterBar  setFilters={setFilters} setSortParams={setSortParams} filters={filters} sortParams={sortParams}/>
-      {isLoading ? (
-        <div className="loading-message">Loading...</div>
-      ) : (
-        <DevicesTable devices={devices} />
-      )}
+      <div className="data-table__items-table">
+        {isLoading ? (
+          <div className="loading-message">Loading...</div>
+        ) : (
+          <div className="data-table__items-table__table-content">
+            <div className="device-title">Devices</div>
+            <DevicesTable devices={devices} />
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };

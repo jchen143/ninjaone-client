@@ -3,5 +3,13 @@
   flex-direction: column;
   padding-left: 24px;
   padding-right: 24px;
+
+  &__items-table {
+    margin-top: 38px;
+
+    &__table-content {
+      border-bottom: 1px solid #D1D0D9;
+    }
+  }
 }
 
