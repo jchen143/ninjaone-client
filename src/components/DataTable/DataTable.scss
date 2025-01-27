@@ -8,7 +8,10 @@
     margin-top: 38px;
 
     &__table-content {
-      border-bottom: 1px solid #D1D0D9;
+
+      .device-title {
+        border-bottom: 1px solid #D1D0D9;
+      }
     }
   }
 }

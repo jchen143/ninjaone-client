@@ -21,10 +21,13 @@ const DeviceRowItem: React.FC<DeviceItemProps> = (props) => {
 
 
   const editAndDelete = (
-    <>
-      <button onClick={(e) => setDeviceEditModalOpen(!deviceEditModalOpen)}>Edit</button>
-      <button onClick={(e) => setDeviceDeleteModalOpen(!deviceDeleteModalOpen)}>Delete</button>
-    </>
+    <div className="p-dropdown-panel edit-and-delete-dropdown-panel">
+      <div className="p-dropdown-items">
+        <button onClick={(e) => setDeviceEditModalOpen(!deviceEditModalOpen)} className="p-dropdown-item">Edit</button>
+        <button onClick={(e) => setDeviceDeleteModalOpen(!deviceDeleteModalOpen)} className="p-dropdown-item">Delete</button>
+      </div>
+
+    </div>
   )
 
   const getDeviceIcon = () => {
@@ -66,7 +69,7 @@ const DeviceRowItem: React.FC<DeviceItemProps> = (props) => {
           </div>
         </div>
 
-        <div className="device-row-item__right">
+        <div className={`device-row-item__right ${deviceOptionsOpen && "device-row-item__right-open"}`}>
           <button onClick={(e) => setDeviceOptionsOpen(!deviceOptionsOpen)}></button>
           {deviceOptionsOpen && editAndDelete}
         </div>
