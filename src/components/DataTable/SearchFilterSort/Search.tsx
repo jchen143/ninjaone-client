@@ -1,5 +1,7 @@
 import React from 'react';
+import SearchIcon from 'src/media/SearchIcon';
 import { Filter } from 'src/types/types';
+import './Search.scss';
 
 interface SearchProps {
   setFilters: (filters: Filter) => void;
@@ -14,7 +16,12 @@ const Search: React.FC<SearchProps> = (props) => {
     setFilters({...filters, nameFilter: e.target.value});
   }
   
-  const searchFilter = <input type="text" onChange={handleSearchChange}/>
+  const searchFilter = 
+    <span className="search-container">
+      <SearchIcon />
+      <input type="text" placeholder="Search" onChange={handleSearchChange} />
+    </span>
+  
 
   return searchFilter;
 };

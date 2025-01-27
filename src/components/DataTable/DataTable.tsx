@@ -6,7 +6,7 @@ import SearchAndFilterBar from 'src/components/DataTable/SearchFilterSort/Search
 import { fetchDevices } from 'src/util/devices-util';
 import { Device, Filter, SortBy, SortOrder, SortParams } from 'src/types/types';
 
-// import './DataTable.scss';
+import './DataTable.scss'; 
 
 const DataTable: React.FC = () => {
   const [devices, setDevices] = React.useState<Device[]>([]);

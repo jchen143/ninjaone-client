@@ -1,0 +1,25 @@
+.search-container {
+  position: relative; 
+  height: 38px;
+  svg {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 270px;
+    height: 38px;
+    border: 1px solid #D1D0D9;
+    border-radius: 4px;
+
+    box-sizing: border-box;
+    padding: 0 13px 0 40px;
+
+  }
+}
