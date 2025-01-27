@@ -6,7 +6,7 @@ import Refresh from 'src/components/DataTable/SearchFilterSort/Refresh';
 import Search from 'src/components/DataTable/SearchFilterSort/Search';
 import Sort from 'src/components/DataTable/SearchFilterSort/Sort';
 
-
+import './SearchAndFilterBar.scss';
 
 interface SearchAndFilterBarProps {
   setSortParams: (sortParams: SortParams) => void;
@@ -20,10 +20,14 @@ const SearchAndFilterBar: React.FC<SearchAndFilterBarProps> = (props) => {
   
   return (
     <div className="search-and-filter-bar">
-      <Search filters={filters} setFilters={setFilters}/>
-      <DeviceFilter filters={filters} setFilters={setFilters} />
-      <Sort setSortParams={setSortParams} sortParams={sortParams}/>
-      <Refresh />
+      <div className="search-and-filter-bar__left">
+        <Search filters={filters} setFilters={setFilters} />
+        <DeviceFilter filters={filters} setFilters={setFilters} />
+        <Sort setSortParams={setSortParams} sortParams={sortParams} />
+      </div>
+      <div className="search-and-filter-bar__right">
+        <Refresh />
+      </div>
     </div>
   );
 };

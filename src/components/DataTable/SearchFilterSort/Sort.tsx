@@ -1,5 +1,5 @@
-import { Dropdown } from 'primereact/dropdown';
 import React from 'react';
+import BaseDropdown from 'src/base-components/Dropdown/BaseDropdown';
 import { SortBy, SortOrder, SortParams } from "src/types/types";
 
 interface SortProps {
@@ -23,8 +23,9 @@ const Sort: React.FC<SortProps> = (props) => {
   );
 
   return (
-    <Dropdown value={selectedOption} onChange={(e) => setSortParams(e.value)} options={sortOptions} optionLabel="label"
-        placeholder={selectedOption?.label} className="w-full md:w-14rem" />
+          // <Dropdown value={selectedOption} onChange={(e) => setSortParams(e.value)} options={sortOptions} optionLabel="label"
+          //     placeholder={selectedOption?.label} className="w-full md:w-14rem" />
+          <BaseDropdown customOptions={sortOptions} onChange={(e) => setSortParams(e.value)} value={selectedOption} optionLabel="label" placeholder={selectedOption?.label} className="w-full md:w-14rem" />
   );
 };
 
