@@ -73,7 +73,7 @@ const DataTable: React.FC = () => {
           <div className="loading-message">Loading...</div>
         ) : (
           <div className="data-table__items-table__table-content">
-            <div className="device-title">Devices</div>
+            <div className="device-title">Device</div>
             <DevicesTable devices={devices} />
           </div>
         )}

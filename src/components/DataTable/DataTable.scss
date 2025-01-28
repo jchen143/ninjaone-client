@@ -5,12 +5,17 @@
   padding-right: 24px;
 
   &__items-table {
-    margin-top: 38px;
+    margin-top: 28px;
 
     &__table-content {
 
       .device-title {
         border-bottom: 1px solid #D1D0D9;
+        font-size: 14px;
+        font-weight: 500;
+        gap: 8px;
+        line-height: 16.94px;
+        padding: 4px;
       }
     }
   }

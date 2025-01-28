@@ -4,11 +4,27 @@
   flex-direction: row;
   justify-content: space-between;
   position: relative;
+  padding: 10px;
 
   &__left {
     &__header {
       display: flex;
       flex-direction: row;
+      gap: 8px;
+
+      &__device-name {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16.94px;
+        color: #211F33;
+      }
+    }
+
+    &__body {
+      color: #6E6D7A;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14.52px;
     }
   }
 
