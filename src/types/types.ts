@@ -14,9 +14,9 @@ export interface SortParams {
 }
 
 export enum DeviceTypes {
-  WINDOWS = 'windows',
-  LINUX = 'linux',
-  MAC = 'mac'
+  WINDOWS = 'WINDOWS',
+  LINUX = 'LINUX',
+  MAC = 'MAC'
 }
 export interface Device {
   id: string;
