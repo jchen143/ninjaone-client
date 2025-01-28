@@ -41,7 +41,7 @@ const DeviceForm: React.FC<DeviceFormProps> = ({isDelete = false, ...props}) => 
         />
 
   const fields = isDelete ? 
-    [<div>{`You are about to delete device ${defaultValues?.system_name}. This action cannot be undone`}</div>] : 
+    [<div>{`You are about to delete the device ${defaultValues?.system_name}. This action cannot be undone`}</div>] : 
     [systenNameField, deviceTypeField, deviceCapacityField];
 
   const cancelButton = <Button text="Cancel" buttonType={ButtonType.NEUTRAL} onClick={() => {closeForm()}} />;
