@@ -8,6 +8,7 @@ import "./DeviceRowItem.scss";
 import AppleLogo from "src/media/AppleLogo";
 import LinuxLogo from "src/media/LinuxLogo";
 import WindowsLogo from "src/media/WindowsLogo";
+import Ellipses from "src/media/Ellipses";
 
 interface DeviceItemProps {
   device: Device;
@@ -22,9 +23,21 @@ const DeviceRowItem: React.FC<DeviceItemProps> = (props) => {
 
   const editAndDelete = (
     <div className="p-dropdown-panel edit-and-delete-dropdown-panel">
-      <div className="p-dropdown-items">
-        <button onClick={(e) => setDeviceEditModalOpen(!deviceEditModalOpen)} className="p-dropdown-item">Edit</button>
-        <button onClick={(e) => setDeviceDeleteModalOpen(!deviceDeleteModalOpen)} className="p-dropdown-item">Delete</button>
+      <div className="p-dropdown-items-wrapper edit-and-delete-dropdown-panel__items-wrapper">
+        <ul className="p-dropdown-items edit-and-delete-dropdown-panel__items">
+          <li className="p-dropdown-item edit-and-delete-dropdown-panel__item">
+            <span onClick={(e) => {
+              setDeviceEditModalOpen(!deviceEditModalOpen)
+              setDeviceOptionsOpen(false)
+            }} >Edit</span>
+          </li>
+          <li className="p-dropdown-item edit-and-delete-dropdown-panel__delete edit-and-delete-dropdown-panel__item">
+            <span onClick={(e) => {
+              setDeviceDeleteModalOpen(!deviceDeleteModalOpen)
+              setDeviceOptionsOpen(false)
+            }} >Delete</span>
+          </li>
+        </ul>
       </div>
 
     </div>
@@ -70,7 +83,9 @@ const DeviceRowItem: React.FC<DeviceItemProps> = (props) => {
         </div>
 
         <div className={`device-row-item__right ${deviceOptionsOpen && "device-row-item__right-open"}`}>
-          <button onClick={(e) => setDeviceOptionsOpen(!deviceOptionsOpen)}></button>
+          <button className="device-row-item__right__button" onClick={(e) => setDeviceOptionsOpen(!deviceOptionsOpen)}>
+            <Ellipses />
+          </button>
           {deviceOptionsOpen && editAndDelete}
         </div>
       </div>

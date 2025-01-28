@@ -31,6 +31,20 @@
   &__right {
     display: none;
     position: relative;
+
+    &__button {
+      background: transparent;
+      border: none;
+      padding: 10px;
+    }
+
+    &:hover {
+      .device-row-item__right__button {
+        background: #E8E8EA;
+        border: 1px;
+        border-radius: 4px;
+      }
+    }
   }
 
   &__right-open {
@@ -48,7 +62,28 @@
 }
 
 .edit-and-delete-dropdown-panel {
-  top: 15px !important;
+  top: 32px !important;
   right: 0 !important;
   left: auto !important;
+  margin-top: 10px !important;
+  min-width: 120px !important;
+  width: 120px !important;
+  height: 70px !important; 
+
+  &__delete {
+    color: #D53948 !important;
+  }
+
+  &__items-wrapper {
+    padding: 0 !important;
+    height: 70px !important;
+  }
+
+  &__items {
+    padding: 0 !important;
+  }
+  &__item {
+    padding: 8px 12px !important;
+    font-weight: 400 !important;
+  }
 }
