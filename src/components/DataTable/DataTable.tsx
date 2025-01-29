@@ -7,11 +7,14 @@ import { fetchDevices } from 'src/util/devices-util';
 import { Device, Filter, SortBy, SortOrder, SortParams } from 'src/types/types';
 
 import './DataTable.scss'; 
+import { refreshContext } from 'src/providers/refreshProvider';
 
 const DataTable: React.FC = () => {
   const [devices, setDevices] = React.useState<Device[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
+
+  const { refresh, setRefresh } = React.useContext(refreshContext);
 
   const [filters, setFilters] = React.useState<Filter>({
     nameFilter: "",
@@ -52,14 +55,20 @@ const DataTable: React.FC = () => {
       setError('Failed to fetch devices');
     } finally {
       setIsLoading(false);
+      setRefresh(false);
     }
   };
 
   React.useEffect(() => {
+    
     loadDevices();
+    //TODO: IMPROVE THIS IMPLEMENTATION
+    // issue we aren't checking the vlaue of refresh (if its true or not) we are just calling loadDevices
+    // needed this to maintain sort and filter. 
+    // maybe we call load devices if filters and sort params are different from the previous ones but only refresh if refresh is true 
 
     // may need to take out filters, sort params, etc. if we only want to trigger on refresh click
-  }, [filters, sortParams]);
+  }, [filters, sortParams, refresh]);
 
   if (error) {
     return <div className="error-message">{error}</div>;
