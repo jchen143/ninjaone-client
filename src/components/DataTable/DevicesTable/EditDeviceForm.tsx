@@ -16,7 +16,16 @@ const EditDeviceForm: React.FC<EditDeviceFormProps> = (props) => {
   const [error, setError] = React.useState<string|null>(null);
 
   const handleSubmit = async (data: Device) => {
-    await updateDevice(data);
+    try {
+      setIsLoading(true);
+      setError(null);
+      await updateDevice(data);
+      closeForm(); 
+    } catch (error) {
+      setError("Failed to update device");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   React.useEffect(() => {
