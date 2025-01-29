@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-- Node.js
-- npm
+- Node.js (18.19.0)
+- npm (10.2.3)
 
 ## Setup Instructions
 
@@ -15,6 +15,7 @@ The server will run on `https://localhost:3000`
 ### 2. Client Setup
 
 In a new terminal, navigate to this project's root directory and run 
+
 ```npm install```
 
 ```npm run build```
