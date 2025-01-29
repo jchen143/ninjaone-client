@@ -3,8 +3,20 @@ import React from 'react';
 import Button, { ButtonType } from 'src/base-components/Button/Button';
 import Form from 'src/base-components/Form/Form';
 import { Device, DeviceTypes } from 'src/types/types';
+import BaseDropdown from 'src/base-components/Dropdown/BaseDropdown';
 
 import './DeviceForm.scss';
+
+interface DeviceOption {
+  label: string;
+  value: DeviceTypes;
+}
+
+const deviceOptions: DeviceOption[] = [
+  { label: "Windows Workstation", value: DeviceTypes.WINDOWS },
+  { label: "Linux Workstation", value: DeviceTypes.LINUX },
+  { label: "Mac Workstation", value: DeviceTypes.MAC },
+];
 
 interface DeviceFormProps {
   defaultValues?: Device;
@@ -26,8 +38,8 @@ const DeviceForm: React.FC<DeviceFormProps> = ({isDelete = false, ...props}) => 
     setFormData({ ...formData, system_name: e.target.value });
   };
 
-  const handleDeviceTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setFormData({ ...formData, type: e.target.value });
+  const handleDeviceTypeChange = (e: any) => {
+    setFormData({ ...formData, type: e.value });
   };
 
   const handleDeviceCapacityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +86,14 @@ const DeviceForm: React.FC<DeviceFormProps> = ({isDelete = false, ...props}) => 
       <label className={deviceTypeError ? "red" : ""}>
         Device type *{deviceTypeError && " (field must be filled out with valid data!)"}
       </label>
-      <input name="deviceType" defaultValue={type} onChange={handleDeviceTypeChange} />
+      <BaseDropdown
+        customOptions={deviceOptions}
+        onChange={handleDeviceTypeChange}
+        value={formData.type}
+        optionLabel="label"
+        placeholder="Select device type"
+        className="w-full"
+      />
     </div>
   )
   const deviceCapacityField = (

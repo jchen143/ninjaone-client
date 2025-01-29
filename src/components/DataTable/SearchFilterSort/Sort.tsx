@@ -25,7 +25,13 @@ const Sort: React.FC<SortProps> = (props) => {
   return (
           // <Dropdown value={selectedOption} onChange={(e) => setSortParams(e.value)} options={sortOptions} optionLabel="label"
           //     placeholder={selectedOption?.label} className="w-full md:w-14rem" />
-          <BaseDropdown customOptions={sortOptions} onChange={(e) => setSortParams(e.value)} value={selectedOption} optionLabel="label" placeholder={selectedOption?.label} className="w-full md:w-14rem" />
+          <BaseDropdown 
+            customOptions={sortOptions} 
+            onChange={(e) => setSortParams(e.value)} 
+            value={selectedOption} 
+            optionLabel="label" 
+            placeholder={selectedOption?.label} 
+            className="w-full md:w-14rem" />
   );
 };
 
