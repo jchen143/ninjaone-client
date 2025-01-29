@@ -10,9 +10,26 @@ interface AddDeviceFormProps {
 
 const AddDeviceForm: React.FC<AddDeviceFormProps> = (props) => {
   const { closeForm } = props;
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState<string|null>(null);
+
   const handleSubmit = async(data: Device) => {
-    await createDevice(data);
+    try {
+      setIsLoading(true);
+      setError(null);
+      await createDevice(data);
+      closeForm();
+    } catch (error) {
+      setError("Failed to create device");
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
 
   return <DeviceForm onSubmit={handleSubmit} closeForm={closeForm} />;
 };

@@ -16,7 +16,16 @@ const DeleteDeviceForm: React.FC<DeleteDeviceFormProps> = (props) => {
   const [error, setError] = React.useState<string | null>(null);
 
   const handleSubmit = async (data: Device) => {
-    await deleteDevice(data.id);
+    try {
+      setIsLoading(true);
+      setError(null);
+      await deleteDevice(data.id);
+      closeForm(); // Close form on successful deletion
+    } catch (error) {
+      setError("Failed to delete device");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   React.useEffect(() => {
