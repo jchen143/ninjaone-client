@@ -93,7 +93,7 @@ const DeviceRowItem: React.FC<DeviceItemProps> = (props) => {
       <Modal isOpen={deviceEditModalOpen} onClose={() => { setDeviceEditModalOpen(false) }} title="Edit Device">
         <EditDeviceForm closeForm={() => { setDeviceEditModalOpen(false) }} deviceId={device.id} />
       </Modal>
-      <Modal isOpen={deviceDeleteModalOpen} onClose={() => { setDeviceDeleteModalOpen(false) }} title="Delete device?">
+      <Modal isOpen={deviceDeleteModalOpen} additionalClassNames={["delete-modal"]} onClose={() => { setDeviceDeleteModalOpen(false) }} title="Delete device?">
         <DeleteDeviceForm deviceId={device.id} closeForm={() => setDeviceDeleteModalOpen(false)} />
       </Modal>
     </>

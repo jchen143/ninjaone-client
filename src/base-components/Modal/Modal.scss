@@ -10,15 +10,20 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
-
+.delete-modal {
+  height: auto !important;
+  max-height: 209px !important;
+}
 .modal {
   background: white;
   border-radius: 4px;
   padding: 20px;
-  min-width: 400px;
+  width: 540px;
+  height: 388px;
   max-width: 90%;
   max-height: 90vh;
   overflow-y: auto;
+  font-family: 'Inter', sans-serif;
 
   &__header {
     display: flex;
@@ -28,6 +33,9 @@
 
     h2 {
       margin: 0;
+      font-weight: 500;
+      font-size: 24px;
+      font-family: 'Inter', sans-serif;
     }
   }
 
@@ -39,4 +47,19 @@
     padding: 0;
   }
 
+  &__form-group {
+    label {
+      font-family: 'Inter', sans-serif;
+    }
+
+    input, select {
+      font-family: 'Inter', sans-serif;
+    }
+  }
+
+  &__actions {
+    button {
+      font-family: 'Inter', sans-serif;
+    }
+  }
 } 

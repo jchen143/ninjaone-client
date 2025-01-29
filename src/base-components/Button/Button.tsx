@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Button.scss";
+
 export enum ButtonType {
   NEUTRAL = 'neutral',   // gray
   ALERT = 'alert',      // red
